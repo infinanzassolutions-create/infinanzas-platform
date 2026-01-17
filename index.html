@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinanzas - Plataforma de Reparación de Crédito</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .top-bar {
+            background: #1e3a8a;
+            color: white;
+            padding: 10px 0;
+            font-size: 13px;
+        }
+
+        .top-bar .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            border: 2px solid #fbbf24;
+            color: #fbbf24;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-highlight {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fbbf24;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .hero-button.primary {
+            background: #fbbf24;
+            color: #1a1a2e;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(251, 191, 36, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .hero-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(251, 191, 36, 0.6);
+        }
+
+        .hero-button.secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .hero-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-trust {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(251, 191, 36, 0.95);
+            color: #1a1a2e;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Agent Process Section */
+        .agent-process {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .agent-process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #e8ecf1;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .process-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db 0%, #2563eb 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .process-icon {
+            font-size: 60px;
+            margin: 20px 0;
+        }
+
+        .process-step h3 {
+            font-size: 22px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .process-step p {
+            font-size: 15px;
+            color: #6c757d;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .process-time {
+            background: #e8f4fd;
+            color: #0066cc;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .process-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-large {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .cta-note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 80px 20px;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e8ecf1;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: #3498db;
+        }
+
+        .testimonial-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .testimonial-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #fbbf24;
+        }
+
+        .testimonial-info h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-location {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-card.featured .testimonial-quote {
+            font-size: 18px;
+        }
+
+        .testimonial-results {
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fbbf24;
+            margin-bottom: 5px;
+        }
+
+        .result-label {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .testimonial-stat {
+            background: rgba(251, 191, 36, 0.1);
+            color: #1a1a2e;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .testimonial-card.featured .testimonial-stat {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .testimonials-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .testimonials-trust {
+            font-size: 18px;
+            color: #1a1a2e;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            color: #1a1a2e;
+            padding: 18px 45px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Trust Badges Section */
+        .trust-badges-section {
+            background: white;
+            padding: 60px 20px;
+            border-bottom: 1px solid #e8ecf1;
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trust-subtitle {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .company-logo {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .company-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .company-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .trust-stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 40px;
+        }
+
+        .trust-stat {
+            text-align: center;
+        }
+
+        .trust-stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .trust-stat-label {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #e8ecf1;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #3498db;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.1);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .faq-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            color: #1a1a2e;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .faq-answer {
+            padding-left: 47px;
+        }
+
+        .faq-answer p {
+            font-size: 15px;
+            color: #495057;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .faq-answer strong {
+            color: #10b981;
+            font-weight: 800;
+        }
+
+        .faq-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 50px;
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0f9ff 100%);
+            border-radius: 20px;
+        }
+
+        .faq-trust {
+            font-size: 20px;
+            color: #1a1a2e;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d3748 100%);
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-section .section-title {
+            color: white;
+        }
+
+        .comparison-section .section-subtitle {
+            color: #cbd5e1;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .comparison-column {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .comparison-column.without {
+            background: #fff1f2;
+            border: 3px solid #fecaca;
+        }
+
+        .comparison-column.with {
+            background: #ecfdf5;
+            border: 3px solid #6ee7b7;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+            transform: scale(1.05);
+        }
+
+        .column-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .column-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .column-header h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a2e;
+        }
+
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-list li {
+            padding: 15px 0;
+            font-size: 16px;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-left: 30px;
+            position: relative;
+            color: #1a1a2e;
+        }
+
+        .comparison-column.without .comparison-list li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .comparison-column.with .comparison-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .comparison-question {
+            font-size: 24px;
+            color: #fbbf24;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        /* Final Multi-CTA Section */
+        .final-multi-cta {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 80px 20px;
+        }
+
+        .final-multi-cta-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .cta-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cta-header h2 {
+            font-size: 42px;
+            color: #1a1a2e;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-header p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        .cta-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .cta-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e8ecf1;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .cta-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .cta-card.featured-cta {
+            border: 3px solid #3498db;
+            box-shadow: 0 10px 40px rgba(52, 152, 219, 0.2);
+            transform: scale(1.05);
+        }
+
+        .cta-card.featured-cta:hover {
+            transform: scale(1.08) translateY(-5px);
+        }
+
+        .cta-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #3498db 0%, #2563eb 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .cta-card-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .cta-card h3 {
+            font-size: 24px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .cta-card p {
+            font-size: 15px;
+            color: #6c757d;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .cta-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .cta-form input {
+            padding: 14px 18px;
+            border: 2px solid #e8ecf1;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .cta-form input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .cta-form-button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-benefits-list {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .cta-benefit {
+            padding: 10px 0;
+            font-size: 15px;
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .cta-primary-button {
+            display: block;
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            color: #1a1a2e;
+            padding: 18px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.3);
+        }
+
+        .cta-primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 193, 7, 0.5);
+        }
+
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .contact-button {
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .contact-button.phone {
+            background: #3498db;
+            color: white;
+        }
+
+        .contact-button.phone:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .contact-button.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-button.whatsapp:hover {
+            background: #1fb855;
+            transform: translateY(-2px);
+        }
+
+        .cta-note {
+            font-size: 13px;
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .final-trust-line {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .final-trust-line span {
+            font-size: 15px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .final-cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            border: 2px solid #fbbf24;
+            color: #fbbf24;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .final-cta h2 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .final-cta-text {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .final-cta-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .benefit-check {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            background: #fbbf24;
+            color: #1a1a2e;
+            padding: 25px 60px;
+            border-radius: 15px;
+            font-size: 22px;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: 0 15px 50px rgba(251, 191, 36, 0.5);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(251, 191, 36, 0.7);
+        }
+
+        .final-cta-guarantee {
+            margin-top: 30px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .proof-item {
+            text-align: center;
+        }
+
+        .proof-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+
+        .proof-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .hero-button {
+            background: #fbbf24;
+            color: #1a1a2e;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .hero-video {
+            position: relative;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-video img {
+            width: 100%;
+            display: block;
+        }
+
+        /* App Preview Section */
+        .app-preview {
+            background: #000;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .app-preview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .app-preview h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .app-preview p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .app-preview ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .app-preview ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .app-preview ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .app-buttons button {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: #fbbf24;
+            border: none;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .phone-mockup {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .phone-mockup img {
+            max-width: 250px;
+            border-radius: 20px;
+        }
+
+        /* Why Partner Section */
+        .why-partner {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .why-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        .why-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* Partnership Cards Section */
+        .partnership-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+
+        .partnership-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .partner-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e8ecf1;
+        }
+
+        .partner-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .partner-card:nth-child(2) .partner-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .partner-card:nth-child(3) .partner-icon {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .partner-card:nth-child(4) .partner-icon {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .partner-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        .partner-card p {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .partner-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .partner-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #495057;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .partner-card ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .partner-button {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            color: #1a1a2e;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        /* Benefits Grid Section */
+        .benefits-grid-section {
+            background: #1e3a8a;
+            padding: 60px 20px;
+        }
+
+        .benefits-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .benefits-header h2 {
+            font-size: 32px;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .benefits-header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .benefits-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .benefit-box {
+            background: #2d3748;
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-box:hover {
+            transform: translateY(-5px);
+            background: #374151;
+        }
+
+        .benefit-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-box h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .benefit-box p {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Transform Section */
+        .transform-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .transform-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .transform-title {
+            font-size: 36px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .transform-title span {
+            color: #3498db;
+            font-weight: 800;
+        }
+
+        .transform-subtitle {
+            color: #6c757d;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step-card {
+            background: #f8f9fa;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .step-number {
+            background: #fbbf24;
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 20px;
+            font-size: 18px;
+        }
+
+        .step-image {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 20px;
+            background: #e8ecf1;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-card h4 {
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .step-card p {
+            font-size: 13px;
+            color: #6c757d;
+            line-height: 1.5;
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+            padding: 80px 20px;
+        }
+
+        .guarantee-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            position: relative;
+        }
+
+        .guarantee-badge:before {
+            content: "110%";
+            color: white;
+            font-size: 42px;
+            font-weight: 900;
+        }
+
+        .guarantee-title {
+            font-size: 36px;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .guarantee-description {
+            font-size: 16px;
+            color: #6c757d;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
+        }
+
+        .guarantee-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .guarantee-feature {
+            text-align: center;
+        }
+
+        .guarantee-feature h4 {
+            font-size: 18px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .guarantee-feature p {
+            font-size: 14px;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3498db 0%, #2563eb 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+            color: white;
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container,
+            .app-preview-container {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid,
+            .cards-grid,
+            .benefits-grid,
+            .steps-grid,
+            .guarantee-features,
+            .footer-container,
+            .testimonials-grid,
+            .process-grid,
+            .faq-grid,
+            .comparison-grid,
+            .cta-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1,
+            .final-cta h2,
+            .cta-header h2 {
+                font-size: 32px;
+            }
+
+            .section-title,
+            .transform-title,
+            .guarantee-title {
+                font-size: 28px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .comparison-column.with {
+                transform: scale(1);
+            }
+
+            .final-cta-benefits {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-proof,
+            .trust-stats,
+            .final-trust-line {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .logos-grid {
+                gap: 20px;
+            }
+
+            .cta-card.featured-cta {
+                transform: scale(1);
+            }
+
+            .cta-card.featured-cta:hover {
+                transform: scale(1.02) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div>📧 info@infinanzas.com | 📞 1-800-INFINANZAS</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#partnerships">Partnerships</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🏆 Para Agentes de Bienes Raíces, Brokers & Loan Officers</div>
+                <h1>Convierte Clientes Rechazados en Aprobados en 60-90 Días</h1>
+                <p class="hero-highlight">Sistema completo de credit repair GRATIS para ti. Tus clientes manejan su proceso, nosotros brindamos soporte 24/7. Tú ganas comisión pasiva y cierras la venta grande.</p>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">60-90</div>
+                        <div class="stat-label">Días para mejorar score</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">Setup o mensualidad</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Para estar activo</div>
+                    </div>
+                </div>
+                <div class="hero-ctas">
+                    <a href="#demo" class="hero-button primary">Agenda Demo de 15 Min</a>
+                    <a href="#how-it-works" class="hero-button secondary">Ver Cómo Funciona</a>
+                </div>
+                <p class="hero-trust">✅ Usado por 500+ agentes y brokers | ⚖️ 100% FCRA Compliant | 🛡️ Garantía 110%</p>
+            </div>
+            <div class="hero-video">
+                <img src="https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Video+Demo+Agentes" alt="Video Demo">
+                <div class="video-overlay">▶ Ver cómo John (RE/MAX) ganó $12K en 90 días</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works for Agents Section -->
+    <section class="agent-process" id="how-it-works">
+        <div class="agent-process-container">
+            <h2 class="section-title">Cómo Empiezas a Ganar en 3 Pasos Simples</h2>
+            <p class="section-subtitle">De registro a primer cliente en menos de 24 horas. Sin cursos, sin certificaciones, sin complicaciones.</p>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-icon">📝</div>
+                    <h3>Regístrate Gratis en 5 Minutos</h3>
+                    <p>Completa el formulario simple. Recibe tu link personalizado y acceso a tu dashboard. Sin costos, sin tarjeta de crédito.</p>
+                    <div class="process-time">⏱️ Tiempo: 5 minutos</div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-icon">🎓</div>
+                    <h3>Training Rápido de 20 Minutos</h3>
+                    <p>Video corto te enseña qué decir a tus clientes, cómo funciona el sistema que ellos usarán, y cómo posicionarte como su asesor de confianza.</p>
+                    <div class="process-time">⏱️ Tiempo: 20 minutos</div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-icon">🚀</div>
+                    <h3>Comparte tu Link y Empieza a Ganar</h3>
+                    <p>Envía tu link a clientes. Ellos se registran. Nosotros hacemos el trabajo. Tú ves el progreso en tu CRM y ganas comisión.</p>
+                    <div class="process-time">⏱️ Empieza hoy mismo</div>
+                </div>
+            </div>
+
+            <div class="process-cta">
+                <a href="#demo" class="cta-large">Sí, Quiero Empezar Ahora - Es Gratis</a>
+                <p class="cta-note">🔒 Sin compromiso. Cancela cuando quieras. Sin costos escondidos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <h2 class="section-title">Lo Que Dicen Agentes y Brokers Como Tú</h2>
+            <p class="section-subtitle">Resultados reales de profesionales de bienes raíces que ya están ganando extra con Infinanzas</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card featured">
+                    <div class="testimonial-header">
+                        <img src="https://via.placeholder.com/80/667eea/ffffff?text=JS" alt="John Smith" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>John Smith</h4>
+                            <p>Senior Real Estate Agent, RE/MAX</p>
+                            <div class="testimonial-location">📍 Miami, FL</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        "En 90 días recuperé 8 clientes que habían sido rechazados. Cada uno mejoró su score en 60+ puntos. Cerré 5 ventas que pensé que había perdido para siempre. <strong>Gané $12,500 en comisiones extra</strong> que nunca hubiera visto sin Infinanzas."
+                    </div>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <div class="result-number">8</div>
+                            <div class="result-label">Clientes recuperados</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">5</div>
+                            <div class="result-label">Ventas cerradas</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">$12.5K</div>
+                            <div class="result-label">En 90 días</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://via.placeholder.com/80/f093fb/ffffff?text=MR" alt="Maria Rodriguez" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Maria Rodriguez</h4>
+                            <p>Mortgage Loan Officer</p>
+                            <div class="testimonial-location">📍 Los Angeles, CA</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        "Lo mejor es que no tengo que aprender nada técnico. Solo digo 'Te puedo ayudar con tu crédito', comparto mi link, y el sistema hace todo. <strong>Mis clientes me ven como una heroína</strong> y yo gano mientras ellos mejoran."
+                    </div>
+                    <div class="testimonial-stat">⭐⭐⭐⭐⭐ 5/5 - "Súper fácil de usar"</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://via.placeholder.com/80/4facfe/ffffff?text=RC" alt="Roberto Chen" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Roberto Chen</h4>
+                            <p>Real Estate Broker</p>
+                            <div class="testimonial-location">📍 Houston, TX</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        "Antes perdía clientes porque 'no calificaban'. Ahora les digo 'Dame 60 días y te califico'. <strong>Mi tasa de cierre subió 35%</strong>. Es la mejor decisión que tomé este año para mi negocio."
+                    </div>
+                    <div class="testimonial-stat">📈 +35% en tasa de cierre</div>
+                </div>
+            </div>
+
+            <div class="testimonials-cta">
+                <p class="testimonials-trust">🏆 Únete a 500+ agentes que ya están ganando extra con Infinanzas</p>
+                <a href="#demo" class="cta-button">Quiero Resultados Como Estos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="trust-badges-section">
+        <div class="trust-container">
+            <p class="trust-subtitle">Agentes de las mejores empresas ya confían en nosotros</p>
+            <div class="logos-grid">
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/180x80/ffffff/1a1a2e?text=RE/MAX" alt="RE/MAX">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/180x80/ffffff/1a1a2e?text=Keller+Williams" alt="Keller Williams">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/180x80/ffffff/1a1a2e?text=Century+21" alt="Century 21">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/180x80/ffffff/1a1a2e?text=Coldwell+Banker" alt="Coldwell Banker">
+                </div>
+                <div class="company-logo">
+                    <img src="https://via.placeholder.com/180x80/ffffff/1a1a2e?text=EXIT+Realty" alt="EXIT Realty">
+                </div>
+            </div>
+            <div class="trust-stats">
+                <div class="trust-stat">
+                    <div class="trust-stat-number">500+</div>
+                    <div class="trust-stat-label">Agentes activos</div>
+                </div>
+                <div class="trust-stat">
+                    <div class="trust-stat-number">95%</div>
+                    <div class="trust-stat-label">Tasa de éxito</div>
+                </div>
+                <div class="trust-stat">
+                    <div class="trust-stat-number">24/7</div>
+                    <div class="trust-stat-label">Soporte disponible</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Partner Section -->
+    <section class="why-partner">
+        <h2 class="section-title">¿Por Qué Los Mejores Agentes y Brokers Eligen Infinanzas?</h2>
+        <p class="section-subtitle">Las herramientas más avanzadas diseñadas específicamente para profesionales de bienes raíces</p>
+        
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">
+                    <img src="https://via.placeholder.com/80/667eea/ffffff?text=💰" alt="Revenue Icon">
+                </div>
+                <h3>Doble Flujo de Ingresos</h3>
+                <p>Gana comisión pasiva mientras tus clientes mejoran su crédito, LUEGO cierra la venta grande. Dos comisiones por el mismo cliente.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">
+                    <img src="https://via.placeholder.com/80/f093fb/ffffff?text=📊" alt="Dashboard Icon">
+                </div>
+                <h3>Dashboard en Tiempo Real</h3>
+                <p>Monitorea el progreso de todos tus clientes desde un solo lugar. Ve mejoras en el score, disputas activas, y avances mes a mes.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">
+                    <img src="https://via.placeholder.com/80/4facfe/ffffff?text=📝" alt="Legal Icon">
+                </div>
+                <h3>100% Legal y Compliant</h3>
+                <p>FCRA compliant. Cliente paga directamente a Infinanzas. Tú ganas comisión legal por referir. Sin riesgo regulatorio para ti.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">
+                    <img src="https://via.placeholder.com/80/43e97b/ffffff?text=📈" alt="Results Icon">
+                </div>
+                <h3>Resultados Probados 60-90 Días</h3>
+                <p>Clientes ven mejoras reales en su score. De rechazado a aprobado en 2-3 meses. Más cierres, más referidos, más comisiones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section class="benefits-grid-section">
+        <div class="benefits-header">
+            <h2>Sistema Completo GRATIS - Tus Clientes Se Encargan de Todo</h2>
+            <p>Dile a tu cliente: "Puedo darte acceso a una plataforma donde mejorarás tu crédito en 60-90 días."<br>Tus clientes usan el sistema directamente. Nosotros brindamos soporte 24/7. Tú solo monitoreas y cierras.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-box">
+                <div class="benefit-icon">🚀</div>
+                <h4>Incremento inmediato de ingresos</h4>
+                <p>Monetización y modelo recurrente. Ganas comisión pasiva mientras el cliente mejora su crédito.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">🧠</div>
+                <h4>Autoridad y posicionamiento profesional</h4>
+                <p>Posicionamiento como experto. Te posicionas como autoridad en crédito.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">🤖</div>
+                <h4>Automatización total con IA avanzada</h4>
+                <p>IA y disputas automáticas. La tecnología hace el trabajo pesado.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">🏆</div>
+                <h4>Mejores resultados = más referidos</h4>
+                <p>Testimonios y referencias. Resultados visibles generan clientes felices.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">📊</div>
+                <h4>Control total desde tu CRM</h4>
+                <p>Dashboard y seguimiento. Visualiza todo en tiempo real.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">🛡️</div>
+                <h4>Garantía del 110%</h4>
+                <p>Respaldo y confianza. Sistema garantizado que reduce objeciones.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">📞</div>
+                <h4>Soporte 24/7</h4>
+                <p>Atención para ti y tus clientes. Nuestro equipo resuelve dudas técnicas.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">🆓</div>
+                <h4>Sin costo para el agente</h4>
+                <p>Cero inversión. No pagas licencias, mensualidades ni setup.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">📈</div>
+                <h4>Escalable y sin riesgo</h4>
+                <p>Crecimiento sin límites. Empieza con pocos clientes y escala.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">⚖️</div>
+                <h4>100% Legal y Compliant</h4>
+                <p>FCRA compliant. Cliente paga directamente a Infinanzas.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">🎯</div>
+                <h4>Convierte rechazos en ventas</h4>
+                <p>Recupera clientes rechazados. Score 650+ en 60-90 días.</p>
+            </div>
+
+            <div class="benefit-box">
+                <div class="benefit-icon">🔗</div>
+                <h4>Landing page personalizada</h4>
+                <p>Tu marca, tu estilo. Landing page lista para captar clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transform Section -->
+    <section class="transform-section">
+        <div class="transform-container">
+            <h2 class="transform-title">Transforma tu vida crediticia en <span>4 sencillos pasos guiados.</span></h2>
+            <p class="transform-subtitle">Cada expediente se maneja con un equipo experto de analistas de expedientes inteligentemente respaldado por software impulsado por IA, ofreciéndole los más altos estándares de resultados en eficacia.</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-image">📋</div>
+                    <h4>CREA TU ACCOUNT EN 60 SEGUNDOS PERSONALIZANDO</h4>
+                    <p>Registro rápido y sencillo. Personaliza tu perfil y comienza de inmediato.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-image">📊</div>
+                    <h4>SUBE TUS 3 REPORTES DE LOS BURÓS DE CRÉDITO PARA SU ANÁLISIS</h4>
+                    <p>Nuestro sistema analiza tus reportes automáticamente.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-image">🎯</div>
+                    <h4>NUESTRO EQUIPO DE ANALISTAS Y LA IA AVANZADA TE DAN UN PLAN</h4>
+                    <p>Recibe un plan personalizado basado en IA y expertos.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-image">🚗</div>
+                    <h4>NOSOTROS TRABAJAMOS Y TÚ VES CÓMO MEJORA TU SCORE</h4>
+                    <p>Monitorea tu progreso en tiempo real desde tu dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee-section">
+        <div class="guarantee-container">
+            <div class="guarantee-badge"></div>
+            <h2 class="guarantee-title">Infinanzas Platform 110% Money-Back Guarantee</h2>
+            <p class="guarantee-description">Te garantizamos que si sigues el plan de trabajo y no ves mejoras en tu puntaje de crédito en 120 días, te devolvemos el 110% de tu inversión. Sin preguntas, sin letra pequeña.</p>
+            <p class="guarantee-description"><em>Get it. Report offers change by Mar 4th • Easy trial • Cancel anytime</em></p>
+
+            <div class="guarantee-features">
+                <div class="guarantee-feature">
+                    <h4>SOC 2 Secure & Reliable</h4>
+                    <p>Tu información está protegida con los más altos estándares de seguridad SOC 2. Encriptación de nivel bancario en todas las transacciones.</p>
+                </div>
+
+                <div class="guarantee-feature">
+                    <h4>Risk-Free Process</h4>
+                    <p>Prueba sin riesgo. Si no estás 100% satisfecho en los primeros 30 días, te devolvemos tu dinero completo sin preguntas.</p>
+                </div>
+
+                <div class="guarantee-feature">
+                    <h4>Trust & Transparency</h4>
+                    <p>Todo el proceso es transparente. Ves cada carta enviada, cada respuesta recibida, y cada cambio en tu reporte en tiempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="section-title">Con Infinanzas vs Sin Infinanzas</h2>
+            <p class="section-subtitle">La diferencia entre perder clientes para siempre o convertirlos en ventas cerradas</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-column without">
+                    <div class="column-header">
+                        <span class="column-icon">❌</span>
+                        <h3>Sin Infinanzas</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>Cliente rechazado = cliente perdido para siempre</li>
+                        <li>Le dices "Trabaja en tu crédito por 6-12 meses"</li>
+                        <li>Cliente se va con otro agente</li>
+                        <li>No ganas comisión, pierdes la venta</li>
+                        <li>No tienes manera de ayudar con crédito</li>
+                        <li>Dejas dinero sobre la mesa constantemente</li>
+                        <li>Tu competencia te roba clientes</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-column with">
+                    <div class="column-header">
+                        <span class="column-icon">✅</span>
+                        <h3>Con Infinanzas</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li>Cliente rechazado = oportunidad de doble ingreso</li>
+                        <li>Le dices "Puedo ayudarte a calificar en 60-90 días"</li>
+                        <li>Cliente se queda contigo, ve resultados</li>
+                        <li>Ganas comisión pasiva + cierras venta grande</li>
+                        <li>Ofreces solución completa de crédito (sin ser experto)</li>
+                        <li>Capturas TODO el valor del cliente</li>
+                        <li>Tú eres el que ofrece más valor que tu competencia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="comparison-cta">
+                <p class="comparison-question">¿Cuál agente prefieres ser?</p>
+                <a href="#demo" class="cta-large">Quiero Ser el Agente Que Cierra Más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Multi-CTA Section -->
+    <section class="final-multi-cta">
+        <div class="final-multi-cta-container">
+            <div class="cta-header">
+                <h2>¿Listo Para Convertir Rechazos en Aprobaciones?</h2>
+                <p>Elige la mejor opción para ti y empieza hoy mismo</p>
+            </div>
+
+            <div class="cta-cards-grid">
+                <!-- CTA Card 1: Saber Más -->
+                <div class="cta-card">
+                    <div class="cta-card-icon">📋</div>
+                    <h3>Saber Más</h3>
+                    <p>Recibe información completa sobre el programa por email</p>
+                    <form class="cta-form" id="saberMasForm">
+                        <input type="text" placeholder="Tu Nombre" required>
+                        <input type="email" placeholder="Tu Email" required>
+                        <input type="tel" placeholder="Teléfono (opcional)">
+                        <button type="submit" class="cta-form-button">Enviar Información</button>
+                    </form>
+                    <p class="cta-note">📧 Recibirás el Partnership Kit completo</p>
+                </div>
+
+                <!-- CTA Card 2: Agendar Demo -->
+                <div class="cta-card featured-cta">
+                    <div class="cta-badge">MÁS POPULAR</div>
+                    <div class="cta-card-icon">🎥</div>
+                    <h3>Agendar Demo</h3>
+                    <p>Sesión personalizada de 15 minutos para ver el sistema en vivo</p>
+                    <div class="cta-benefits-list">
+                        <div class="cta-benefit">✓ Ve el dashboard en acción</div>
+                        <div class="cta-benefit">✓ Resuelve todas tus dudas</div>
+                        <div class="cta-benefit">✓ Sin compromiso</div>
+                    </div>
+                    <a href="#" class="cta-primary-button" onclick="alert('Aquí se integraría Calendly u otro sistema de agendamiento'); return false;">Agendar Mi Demo Ahora</a>
+                    <p class="cta-note">⏱️ Disponible hoy mismo</p>
+                </div>
+
+                <!-- CTA Card 3: Hablar con Ventas -->
+                <div class="cta-card">
+                    <div class="cta-card-icon">💬</div>
+                    <h3>Hablar con Ventas</h3>
+                    <p>Conecta directo con un representante por teléfono o WhatsApp</p>
+                    <div class="contact-options">
+                        <a href="tel:+18001234567" class="contact-button phone">
+                            📞 Llamar Ahora
+                        </a>
+                        <a href="https://wa.me/18001234567" class="contact-button whatsapp" target="_blank">
+                            💬 WhatsApp
+                        </a>
+                    </div>
+                    <p class="cta-note">🕐 Lun-Vie 9am-6pm EST</p>
+                </div>
+            </div>
+
+            <div class="final-trust-line">
+                <span>🛡️ Garantía del 110%</span>
+                <span>⚖️ 100% FCRA Compliant</span>
+                <span>🔒 SOC 2 Certified</span>
+                <span>✅ Sin costo para empezar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Closing Manual</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Training Videos</a></li>
+                    <li><a href="#">Best Practices</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contact & Community</h4>
+                <ul>
+                    <li><a href="#">📧 Support</a></li>
+                    <li><a href="#">💬 Live Chat</a></li>
+                    <li><a href="#">📱 (800) 123-4567</a></li>
+                    <li><a href="#">🌐 Community Forum</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Infinanzas Platform. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <p>🔒 SOC 2 CERTIFIED | 🛡️ FCRA COMPLIANT</p>
+        </div>
+    </footer>
+
+    <!-- Chat Bubble -->
+    <div class="chat-bubble">💬</div>
+</body>
+</html>
